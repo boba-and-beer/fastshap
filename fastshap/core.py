@@ -6,7 +6,7 @@ __all__ = []
 from fastai2.tabular.all import *
 
 # Cell
-def _prepare_data(learn:Learner, test_data=None, n_samples:int=128):
+def _prepare_data(learn, test_data=None, n_samples:int=128):
   "Prepares train and test data for `SHAP`, pass in a learner with optional data"
   no_user_provided_test_data = test_data is None
   if isinstance(test_data, pd.DataFrame):
@@ -25,7 +25,7 @@ def _prepare_data(learn:Learner, test_data=None, n_samples:int=128):
   return test_data.sample(n=n_samples) if ((len(test_data) > n_samples) and no_user_provided_test_data) else test_data
 
 # Cell
-def _predict(learn:TabularLearner, data:np.array):
+def _predict(learn, data:np.array):
   "Predict function for some data on a fastai model"
   device = 'cuda' if torch.cuda.is_available() else 'cpu'
   model = learn.model.to(device)
