@@ -11,7 +11,7 @@
 First we'll quickly train a `ADULTS` tabular model
 
 ```
-from fastai2.tabular.all import *
+from fastai.tabular.all import *
 ```
 
 ```
